@@ -125,7 +125,7 @@ data_entrega_prevista
 
 data_entrega_real
 
- #### Principais Relações
+ ### Principais Relações
 
 Cliente 1:1 Cliente_PF/PJ (garante exclusividade PF ou PJ).
 
