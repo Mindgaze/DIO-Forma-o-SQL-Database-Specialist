@@ -15,8 +15,9 @@ Primeiramente foi feito o mapeamento dos processos do e-commerce através de um 
 + Presença loops de retry, rollback de transações,validação de pagamento antes do disparo da entrega 
 + Prevenção de  Fraudes
 + Escabilidade em momentos de alta demanda devido a ausencia de paralelismos e checkpoints
-Finalizado a modelagem dos processo optou-se por uma modelagem em formato DER visual (diagrama entidade-relacionamento) com as seguintes caractristicas: 
-1. Cliente
+
+Finalizado a modelagem dos processo foram  ultlizadas ferrametas de IA generativa e  tecncias de prompt enginering para gerar uma modelagem em formato DER visual (diagrama entidade-relacionamento) com as seguintes caractristicas: 
+#### 1. Cliente
 
 cliente_id (PK)
 
@@ -28,13 +29,13 @@ telefone
 
 tipo_cliente (ENUM: PF, PJ)
 
-2. Cliente_PF (especialização 1:1)
+#### 2. Cliente_PF (especialização 1:1)
 
 cliente_id (PK, FK → Cliente)
 
 cpf
 
-3. Cliente_PJ (especialização 1:1)
+#### 3. Cliente_PJ (especialização 1:1)
 
 cliente_id (PK, FK → Cliente)
 
@@ -42,7 +43,7 @@ cnpj
 
 razao_social
 
-4. Produto
+#### 4. Produto
 
 produto_id (PK)
 
@@ -54,7 +55,7 @@ preco
 
 categoria
 
-5. Estoque
+#### 5. Estoque
 
 estoque_id (PK)
 
@@ -68,7 +69,7 @@ disponibilidade (boolean/status)
 
 estimativa_entrega (dias)
 
-6. Pedido
+#### 6. Pedido
 
 pedido_id (PK)
 
@@ -80,7 +81,7 @@ valor_total
 
 status_pedido (ex.: aberto, pago, enviado, cancelado)
 
-7. ItemPedido
+#### 7. ItemPedido
 
 item_id (PK)
 
@@ -92,7 +93,7 @@ quantidade
 
 preco_unitario
 
-8. FormaPagamento
+#### 8. FormaPagamento
 
 pagamento_id (PK)
 
@@ -100,7 +101,7 @@ tipo (cartão, boleto, pix)
 
 detalhes (ex.: últimos dígitos cartão)
 
-9. Pedido_Pagamento (N:N)
+#### 9. Pedido_Pagamento (N:N)
 
 pedido_id (FK → Pedido)
 
@@ -108,7 +109,7 @@ pagamento_id (FK → FormaPagamento)
 
 valor_pago
 
-10. Entrega
+#### 10. Entrega
 
 entrega_id (PK)
 
@@ -124,7 +125,7 @@ data_entrega_prevista
 
 data_entrega_real
 
- Principais Relações
+ #### Principais Relações
 
 Cliente 1:1 Cliente_PF/PJ (garante exclusividade PF ou PJ).
 
